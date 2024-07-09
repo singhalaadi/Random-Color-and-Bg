@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color and Bg</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            width: 80vw;
+            height: 100vh;
+            margin: auto;
+        }
+
+        .box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 20vw;
+            height: 20vh;
+            margin: auto;
+            padding: 5px;
+            border: 2px solid black;
+            font-size: 30px;
+            font-weight: bolder;
+        }
+        @media only screen and (max-width:500px) and (min-width: 250px){
+            .container{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                flex-wrap: auto;
+                margin: 5px auto;
+            }
+            .box{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 25px;
+                font-weight: bold;
+                padding: 5px;
+                height: 15vh;
+                width: 80vw;
+                margin: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">BOX 1</div>
+        <div class="box">BOX 2</div>
+        <div class="box">BOX 3</div>
+        <div class="box">BOX 4</div>
+        <div class="box">BOX 5</div>
+    </div>
+    <script>
+        const boxes = document.querySelectorAll('.box');
+        const colors = ['red', 'green', 'blue', 'yellow', 'chocolate','cornflowerblue','crimson'];
+        const bgColors = ['gray', 'brown', 'purple','magenta','cyan','antiquewhite','aquamarine'];
+        let size1 = colors.length;
+        let size2 = bgColors.length;
+        boxes.forEach(element => {
+            let random = Math.floor(Math.random() * size1)
+            element.style.color = colors[random]
+        });
+        boxes.forEach(element => {
+            let random = Math.floor(Math.random() * size2)
+            element.style.backgroundColor = bgColors[random]
+        });
+    </script>
+</body>
+
+</html>
